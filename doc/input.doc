@@ -1,0 +1,52 @@
+input_init():
+
+	Takes:
+		>Device path.
+		>Event struct pointer, defined in main.
+
+	Does:
+		-Set event struct to not block.
+		-Open device file for joystick.
+		-Error check open.
+		-Set file descriptor to not block. [POTENTIALLY]
+		
+		-Return file descriptor on success.
+		-Return -1 on fail.
+
+
+input_get():
+
+	Takes:
+		>File descriptor.
+		>Key map (array?).
+
+	Does:
+		-Attempts single read of file descriptor.
+		-Translates read input to translated input.
+	
+		-Returns translated input to main on success.
+		-Returns INP_WAIT when not time yet.
+		-Returns INP_NONE when no input.
+		-Calls error_handler() on fail.
+
+input_close():
+
+	Takes:
+		>File descriptor.
+
+	Does:
+		-Closes file descriptor. Wrapper for close().
+
+
+INPUT MAP:
+
+0 - up
+1 - down
+2 - right
+3 - left
+4 - a
+5 - b
+6 - x
+7 - y
+8 - start
+9 - select

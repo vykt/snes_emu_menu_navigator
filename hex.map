@@ -1,0 +1,54 @@
+--- /dev/input/js0
+
+19.5 Bytes, Last 4 bytes show actual button press.
+BUTTON - HEX VALUE:
+
+Select	:	0001 0601
+Start	:	0001 0701
+
+L1		:	0001 0401
+R1		:	0001 0501
+
+D-UP	:	0001 0702
+D-RIGHT	:	7FFF 0602
+D-DOWN	:	7FFF 0702
+D-LEFT	:	8001 0602
+
+X		:	0001 0301
+Y		:	0001 0201
+A		:	0001 0101
+B		:	0001 0001
+
+
+--- /dev/input/event16
+
+28 bytes from bottom, plus counter on top.
+
+BYTES - SIGNIFICANCE:
+
+13 - 14	: Button being pressed
+
+ 5 -  6	: Button being pressed (alt. but exclusive).
+
+ 9 - 12 : Analog for D-Pad.
+
+ 1 -  4 : Analog for D-Pad. (alt. but exclusive).
+
+
+BUTTON - HEX VALUE:
+
+Select	:	013A
+Start	:	013B
+
+L1		:	0136
+R1		:	0137
+
+D-UP	:	0011,	FFFF FFFF
+D-RIGHT	:	0010,	0001 0000
+D-DOWN	:	0011,	0001 0000
+D-LEFT	:	0010,	FFFF FFFF
+
+X		:	0134
+Y		:	0133
+A		:	0131
+B		:	0130

@@ -1,0 +1,90 @@
+config_populate():
+
+	Purpose:	Reads all necessary options in a single config open. Fast.
+				Can be used to populate both general or keymap settings.
+
+	Takes:
+		>Character array of options (Length preset from main header). 
+			|
+			 - Format: char[n] array
+			 				0 = gamepad
+							1 = launch
+							2 = rom_path
+
+		> Memory alloc of keymap options (Length preset from main header).
+
+	Does:
+		-Open config file.
+		-For each line, check each option value of array for match.
+			|
+			 -If matched:
+			 	|
+				 -If general option, fill general option as character array.
+				|
+				 -If keymap option, fill keymap option in keymap memory alloc.
+		-Skip comment lines (denoted by '#').
+		-Close config file.	
+
+		-Return 0 if all options found & filled.
+		-Return -1 if any option is not found.
+
+	
+config_populate_[options,keymap]():
+
+	Purpose:	Populate keymap memory with keys. Called by config_populate.
+
+	Takes:
+		>Line segment to use.
+		>Keymap memory.
+		>Offset to populate in keymap memory.
+
+	Does:
+		-Take line segment.
+		-Break down into components if necessary.
+		-Assign to appropriate memory block given from main().
+
+		-Return 0 on success.
+		-Call error_handler on error.
+
+
+config_read_roms():
+
+	Purpose:	Reads every file in ROMs directory, adds all roms found to
+				a string array. The menu can then use these strings to display
+				games that can be launched.
+
+	Takes:
+		>String pointer to ROMs path.
+		>Memory allocated array of size ROMS_MAX * NAME_MAX (limits.h)
+		>Integer pointer for array size. Write to tell main how many entries
+		 in array.
+
+	Does:
+		-Open directory.
+		-Loop through each file in directory.
+			|
+			 -If filename ends in ".sfc" (superfamicom):
+			 	|
+				 -Add filename to the array
+		-Close directory.
+		
+		-Return 0 on success.
+		-On error, control given to error_handler(), no return possible.
+
+
+ORDER BEING READ:
+
+0 - gamepad
+1 - launch
+2 - rom_path
+
+0 - dpad_up
+1 - dpad_down
+2 - dpad_right
+3 - dpad_left
+4 - but_a
+5 - but_b
+6 - but_x
+7 - but_y
+8 - start
+9 - select

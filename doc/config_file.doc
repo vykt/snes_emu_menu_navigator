@@ -1,0 +1,22 @@
+# Example config v1.0
+
+# General
+
+gamepad=/dev/input/js0
+launch=snes9x-gtk -conf /etc/snes9x.conf
+rom_path=/usr/share/ROMs
+
+# Keymap
+
+dpad_vert=
+dpad_hor=
+dmap_vert_pos=
+dmap_hor_pas=
+
+but_a=
+but_b=
+but_x=
+but_y=
+
+start=
+select=

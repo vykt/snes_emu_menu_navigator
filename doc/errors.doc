@@ -1,0 +1,21 @@
+Header error IDs:
+
+	ID for every type of error in the program is defined in the header.
+
+0 - INPUT_DEVICE_OPEN_ERR
+
+
+error_handler:
+
+	Takes:
+		>Error ID.
+
+	Does:
+		-Opens error log.
+		-Gets current time & date (as timestamp?).
+		-Fetches appropriate error line from inbuilt array of errors.
+		-Writes error to log in format "timestamp - error message".
+		-Closes error log.
+		
+		-Exits with -1 on error log write.
+		-Exits with -2 on failure to write error log.

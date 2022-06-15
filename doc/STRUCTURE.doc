@@ -1,0 +1,31 @@
+OBJECTIVE:
+
+	-Read configuration file to set options.
+	-Take inputs from joystick.
+	-Draw menu, allow inputs to navigate menu.
+	-Launch selected title in snes9x (X11) when required, exiting the menu.
+
+
+FILE STRUCTURE:
+
+	main.c:				>Initialise components, manage intercommunication.
+		|
+		 - config.c		>Read configuration file. Set constants for main.
+		|
+		 - menu.c:		>Draw menu, keep track of menu, respond to inputs, handle exits.
+		|
+		 - inputs.c		>Take joystick inputs, respond to /dev/js0 file.
+		|
+		 - launch.c		>Launch chosen title, error check, ask main to exit.
+		|
+		 - errors.c		>Error handling and logging.
+
+
+	clean_conf.sh:		>Cleans error log file during development.
+
+	STATUS:				>Development status of each file and major function.
+
+
+KEYMAP:
+
+	<refer to config.doc or input.doc>

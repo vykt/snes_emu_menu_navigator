@@ -1,0 +1,76 @@
+get_start_pos():
+
+	Takes:
+		>Line to be printed.
+		>X-width of screen (max x).
+
+	Does:
+		-Get length of line.
+		-Divide length by 2.
+		-Divide max x by 2, then subtract line length/2.
+		
+		-Returns x pos if line fits on screen.
+		-Returns -1 if line doesn't fit, indicating it needs to be trimmed.
+
+
+menu_init():
+
+	Takes:
+		>Roms array.
+		>Roms array length.
+		>Max screen size.
+		>Selection of current game.
+
+	Does:
+		-Initialises ncurses screen, sets desired options.
+		-Gets max screen size and saves it.
+		-Sets selection of current game to 0.
+		-Defines colours.
+		-Draws initial menu screen.
+
+		-Returns 0.
+
+
+menu_draw():
+
+	Takes:
+		>Roms array.
+		>Roms array length.
+		>Screen dimensions.
+		>Selected game.
+
+	Does:
+		-Uses the taken information to draw the menu on the screen.
+
+
+menu_update():
+
+	Takes:
+		>Roms array.
+		>Roms array length.
+		>Screen dimensions.
+		>Current selected game.
+		>Input from controller (id of button).
+
+	Does:
+		-Update the drawn menu if possible.
+		-Initiate launch of selected ROM if start is pressed.
+
+		-Returns 0 on successful action taken.
+		-Returns 1 on no action taken.
+
+
+menu_kill():
+
+	Takes:
+
+	Does:
+		-Calls endwin() to end ncurses mode for tty.
+		[POTENTIALLY DOES MORE]
+
+		-Returns 0.
+
+
+Additional requirements:
+
+Allow for keyboard input to initialise maintenance mode - use getch();
